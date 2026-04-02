@@ -212,25 +212,24 @@
         .leaf-1 { top: 8%; right: 6%; transform: rotate(-20deg); }
         .leaf-2 { bottom: 12%; left: 4%; transform: rotate(15deg); font-size: 7rem; }
 
-        /* ===== IMAGE ===== */
-        .hero-image-section {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image-section img {
+        .recipe-photo {
             width: 100%;
-            height: 55vh;
+            max-height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+        .recipe-photo img {
+            width: 100%;
+            height: 500px;
             object-fit: cover;
             display: block;
         }
-
-        .hero-image-section::after {
+        .recipe-photo::after {
             content: '';
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 120px;
-            background: linear-gradient(to top, var(--warm-white), transparent);
+            height: 80px;
+            background: linear-gradient(transparent, var(--cream));
         }
 
         /* ===== RECIPE SECTION ===== */
@@ -516,10 +515,10 @@
         </div>
     </section>
 
-    <!-- IMAGE -->
-    <section class="hero-image-section">
-        <img src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2023/11/29160240/KRT_4916-1200-%D7%A8%D7%90%D7%A9%D7%99%D7%AA.jpg" alt="מרק גריסים ופטריות">
-    </section>
+    <!-- PHOTO -->
+    <div class="recipe-photo">
+        <img src="https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2023/11/29160240/KRT_4916-1200-%D7%A8%D7%90%D7%A9%D7%99%D7%AA.jpg" alt="מרק גריסים ופטריות" loading="lazy">
+    </div>
 
     <!-- INGREDIENTS -->
     <section class="recipe-section">
