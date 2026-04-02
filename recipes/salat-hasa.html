@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סלט החסה המצטיין של אמא</title>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Noto+Sans+Hebrew:wght@300;400;500;600&family=Secular+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F0E8;
+            --warm-white: #FDFBF7;
+            --olive: #6B7C3E;
+            --olive-dark: #4A5A28;
+            --olive-light: #8FA352;
+            --honey: #D4A843;
+            --honey-glow: #E8C36A;
+            --terracotta: #C2734C;
+            --bark: #3D2E1F;
+            --bark-light: #5C4A38;
+            --linen: #EDE6D8;
+            --sage: #B5C4A0;
+            --sage-pale: #D4DDCA;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans Hebrew', sans-serif;
+            background: var(--cream);
+            color: var(--bark);
+            overflow-x: hidden;
+        }
+
+        /* Grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(160deg, var(--warm-white) 0%, var(--cream) 40%, var(--linen) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -15%;
+            width: 70vw; height: 70vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--sage-pale) 0%, transparent 70%);
+            opacity: 0.5;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%; left: -10%;
+            width: 50vw; height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--honey-glow) 0%, transparent 70%);
+            opacity: 0.15;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.05); }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-label {
+            font-family: 'Noto Sans Hebrew', sans-serif;
+            font-weight: 300;
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            color: var(--olive);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeUp 1.2s ease-out 0.2s both;
+        }
+
+        .hero-title {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 1.1;
+            color: var(--bark);
+            margin-bottom: 1rem;
+            animation: fadeUp 1.2s ease-out 0.4s both;
+        }
+
+        .hero-title .accent {
+            color: var(--olive);
+            display: block;
+            font-size: 0.6em;
+            font-weight: 500;
+        }
+
+        .hero-subtitle {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 300;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--bark-light);
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            line-height: 1.8;
+            animation: fadeUp 1.2s ease-out 0.6s both;
+        }
+
+        .hero-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--honey);
+            margin: 2.5rem auto;
+            border-radius: 2px;
+            animation: fadeUp 1.2s ease-out 0.8s both;
+        }
+
+        .hero-author {
+            font-size: 0.9rem;
+            color: var(--olive);
+            font-weight: 400;
+            animation: fadeUp 1.2s ease-out 1s both;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s ease-in-out infinite 2s;
+        }
+
+        .scroll-hint svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--olive-light);
+            opacity: 0.6;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ===== LEAF DECORATIONS ===== */
+        .leaf {
+            position: absolute;
+            opacity: 0.06;
+            font-size: 12rem;
+            z-index: 1;
+            user-select: none;
+        }
+        .leaf-1 { top: 10%; right: 5%; transform: rotate(-30deg); }
+        .leaf-2 { bottom: 15%; left: 3%; transform: rotate(20deg); font-size: 8rem; }
+
+        /* ===== STORY SECTION ===== */
+        .story {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .story-text {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.25rem;
+            line-height: 2;
+            color: var(--bark);
+            font-weight: 400;
+        }
+
+        .story-text p {
+            margin-bottom: 1.8rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .story-text p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-text .highlight {
+            background: linear-gradient(180deg, transparent 60%, var(--honey-glow) 60%);
+            padding: 0 4px;
+        }
+
+        .pull-quote {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--olive-dark);
+            border-right: 4px solid var(--honey);
+            padding: 1.5rem 2rem 1.5rem 0;
+            margin: 3rem 0;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: '״';
+            position: absolute;
+            top: -0.5rem;
+            right: 2rem;
+            font-size: 5rem;
+            color: var(--sage);
+            opacity: 0.3;
+            font-family: 'Frank Ruhl Libre', serif;
+            line-height: 1;
+        }
+
+        /* ===== RECIPE SECTION ===== */
+        .recipe-section {
+            background: var(--warm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recipe-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--sage), transparent);
+        }
+
+        .recipe-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.3em;
+            color: var(--honey);
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-family: 'Secular One', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--bark);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-line {
+            width: 40px;
+            height: 2px;
+            background: var(--olive);
+            margin: 1rem auto 0;
+        }
+
+        /* Ingredients Grid */
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 640px) {
+            .ingredients-grid { grid-template-columns: 1fr; }
+        }
+
+        .ingredient-group {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .ingredient-group:hover {
+            transform: translateY(-4px);
+        }
+
+        .ingredient-group::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--olive), var(--sage));
+            border-radius: 16px 16px 0 0;
+        }
+
+        .ingredient-group.sauce::after {
+            background: linear-gradient(90deg, var(--honey), var(--terracotta));
+        }
+
+        .group-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .group-title {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--bark);
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredient-list {
+            list-style: none;
+        }
+
+        .ingredient-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(107, 124, 62, 0.1);
+            font-size: 1rem;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .ingredient-list li:last-child {
+            border-bottom: none;
+        }
+
+        .ingredient-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--olive-light);
+            flex-shrink: 0;
+            margin-top: 0.6rem;
+        }
+
+        .sauce .ingredient-list li::before {
+            background: var(--honey);
+        }
+
+        .ingredient-note {
+            font-size: 0.88rem;
+            color: var(--bark-light);
+            font-style: italic;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--sage);
+            line-height: 1.7;
+        }
+
+        /* ===== STEPS ===== */
+        .steps-section {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--linen) 100%);
+            position: relative;
+        }
+
+        .steps-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.7s ease-out;
+        }
+
+        .step.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .step-number {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--sage);
+            line-height: 1;
+            flex-shrink: 0;
+            width: 60px;
+            text-align: center;
+            opacity: 0.5;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+
+        .step-text {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--bark);
+        }
+
+        .step-connector {
+            width: 2px;
+            height: 2rem;
+            background: linear-gradient(180deg, var(--sage-pale), transparent);
+            margin: 0 auto 0 30px;
+            margin-bottom: -1rem;
+        }
+
+        /* ===== TIPS ===== */
+        .tips-section {
+            background: var(--olive-dark);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tips-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 60vw; height: 60vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--olive) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        .tips-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tips-title {
+            font-family: 'Secular One', sans-serif;
+            font-size: 1.8rem;
+            color: var(--honey-glow);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .tip-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-3px);
+        }
+
+        .tip-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tip-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--sage-pale);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--warm-white);
+        }
+
+        .footer-text {
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--bark);
+        }
+
+        .footer-sub {
+            font-size: 0.9rem;
+            color: var(--bark-light);
+            margin-top: 0.8rem;
+        }
+
+        .footer-leaf {
+            font-size: 3rem;
+            display: block;
+            margin-top: 1.5rem;
+            opacity: 0.3;
+        }
+
+        /* ===== BACK NAV ===== */
+        .back-nav {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(107, 124, 62, 0.15);
+            border-radius: 100px;
+            color: var(--olive-dark);
+            text-decoration: none;
+            font-family: 'Noto Sans Hebrew', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .back-nav:hover {
+            background: rgba(253, 251, 247, 0.95);
+            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .back-nav svg { width: 16px; height: 16px; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .step { flex-direction: column; gap: 0.5rem; }
+            .step-number { width: auto; text-align: right; font-size: 2.5rem; }
+            .step-connector { display: none; }
+            .ingredient-group { padding: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACK NAV -->
+    <a href="../" class="back-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 5l7 7-7 7"/></svg>
+        כל המתכונים
+    </a>
+
+    <!-- HERO -->
+    <section class="hero">
+        <span class="leaf leaf-1">🌿</span>
+        <span class="leaf leaf-2">🍃</span>
+        <div class="hero-content">
+            <p class="hero-label">מהמטבח של אמא</p>
+            <h1 class="hero-title">
+                סלט החסה המצטיין
+                <span class="accent">הסוד הוא ברוטב</span>
+            </h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">הסלט שאין אצלנו ארוחה בלעדיו הוא זה שאנשים יבקשו מכם את המתכון ויצלצלו להגיד תודה</p>
+            <p class="hero-author">מיכל רוזנבך · טאצ׳ פוד · 2017</p>
+        </div>
+        <div class="scroll-hint">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="story">
+        <div class="story-text">
+            <p>מאז שאני ילדה, אחת המנות הידועות ברפרטואר של אמי הוא הסלט הזה. בכל פעם שפותחים שולחן או מזנון עמוס במנות, אין מצב שהוא לא נכלל בו. אמי תמיד מכינה קערה ענקית ויפה של הסלט הירוק הטעים הזה, או לחילופין מגישה בקערה סטנדרטית בגודלה, כאשר <span class="highlight">מילוי נוסף של עלים, אגוזים ורוטב מחכה במטבח.</span></p>
+
+            <p>מעטים האנשים שאוכלים לראשונה מהסלט חסה של אמא שלי ולא עוצרים להגיב עליו. אני חושבת שזהו המתכון שהכי הרבה אנשים ביקשו ממני לאורך השנים.</p>
+
+            <div class="pull-quote">
+                באחד מימי ההולדת האחרונים שחגגנו לבתי הבכורה, הגשנו קערת עץ ענקית ויפה מלאה בסלט הזה, והתוצאה: לפחות חמישה הורים סימסו לי באותו ערב בקשה למתכון.
+            </div>
+
+            <p>כפי שתבינו עוד מעט, למתכון הזה יש הרבה מאד וריאציות. מה שמיד תראו זו הגרסה המוצלחת ביותר לדעתי. אני מודיעה מראש שיש כאן כמה מרכיבים ״מיוחדים״ שאולי אינם דיירי קבע במטבח שלכם — <span class="highlight">שמן שומשום, שמן אגוזי מלך/לוז, ריבת תפוזים</span> — שממש עושים את ההבדל ודווקא עליהם לא כדאי לוותר.</p>
+
+            <p>כך או אחרת, היו בטוחים שהסלט הזה יהיה בין המנות הראשונות שיגרדו את התחתית שלהן.</p>
+        </div>
+    </section>
+
+    <!-- INGREDIENTS -->
+    <section class="recipe-section">
+        <div class="recipe-container">
+            <div class="section-header">
+                <span class="section-number">חומרי הגלם</span>
+                <h2 class="section-title">מה צריך?</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="ingredients-grid">
+                <!-- Sauce -->
+                <div class="ingredient-group sauce">
+                    <span class="group-icon">🫙</span>
+                    <h3 class="group-title">לרוטב</h3>
+                    <ul class="ingredient-list">
+                        <li>2 כפיות גדושות חרדל דיז׳ון משובח</li>
+                        <li>2 כפיות דבש (לטבעונים — סילאן)</li>
+                        <li>מרמלדת / ריבת תפוזים</li>
+                        <li>שמן שומשום</li>
+                        <li>שמן אגוזי מלך / לוז</li>
+                        <li>אופציונלי: 2 כפות מיץ תפוזים</li>
+                    </ul>
+                    <p class="ingredient-note">אפשר להמיר את מרמלדת התפוזים ברכז רימונים, ריבת תאנים, או חומץ בלסמי</p>
+                </div>
+
+                <!-- Salad -->
+                <div class="ingredient-group">
+                    <span class="group-icon">🥬</span>
+                    <h3 class="group-title">לסלט</h3>
+                    <ul class="ingredient-list">
+                        <li>לבבות חסה — העלים הפנימיים הבהירים והפריכים</li>
+                        <li>אגוזים</li>
+                        <li>½ תפוח גראנד סמית׳ (ירוק), מקולף וחתוך לקוביות</li>
+                    </ul>
+                    <p class="ingredient-note">אפשר לשלב סוגי חסה שונים, עלי בייבי/רוקט/תרד. אפשר להחליף את התפוח באפרסמון, מישמש מיובש, או חמוציות. הכל הולך כל עוד העלים פריכים וטריים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="steps-section">
+        <div class="steps-container">
+            <div class="section-header">
+                <span class="section-number">שלב אחר שלב</span>
+                <h2 class="section-title">הכנה</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <p class="step-text">מכניסים את כל מרכיבי הרוטב לשייקר ומשקשקים היטב עד שנוצר רוטב קטיפתי וסמיך. גם צנצנת שתנערו ממש טוב או קערה ומטרפה יעשו את העבודה. אם מקציפים ידנית — את השמנים להוסיף בסוף, בזילוף עדין תוך כדי ערבוב.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <p class="step-text">קורעים את עלי החסה לגודל שנוח לאכול ומניחים בקערה.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <p class="step-text">שוברים את האגוזים לחצי, קולים אותם על מחבת חמה כמה דקות (אין צורך להוסיף שמן, הם שומניים מספיק) ומוסיפים לקערה.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <p class="step-text">בסמוך להגשה (כדי שלא ישחיר) חותכים את התפוח ומוסיפים לקערה.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">05</div>
+                <div class="step-content">
+                    <p class="step-text">שופכים מהרוטב — התחילו עם פחות משנראה לכם, תמיד אפשר להוסיף. ועם ידיים נקיות, בעדינות מקפלים ומערבבים ככה שהרוטב יצפה את כל הסלט, אך לא יכביד עליו.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIPS -->
+    <section class="tips-section">
+        <div class="tips-container">
+            <h2 class="tips-title">💡 טיפים</h2>
+            <div class="tip-cards">
+                <div class="tip-card">
+                    <span class="tip-icon">🥄</span>
+                    <p>המקצוענים מקפלים את הרוטב בקערה נפרדת ואז מעבירים לקערת הגשה.</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🧊</span>
+                    <p>הרוטב נשמר עד 10 ימים במקרר בכלי אטום. תערבבו טוב לפני שימוש חוזר.</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">✨</span>
+                    <p>מומלץ להכין מראש כמות כפולה של הרוטב, שיהיה ב״שלוף״ במקרר — מקפיץ כל ארוחה.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-text">!בתיאבון</p>
+        <p class="footer-sub">מיכל רוזנבך · טאצ׳ פוד · הארץ</p>
+        <span class="footer-leaf">🌿</span>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.story-text p, .step, .pull-quote').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Stagger step animations
+        document.querySelectorAll('.step').forEach((step, i) => {
+            step.style.transitionDelay = `${i * 0.15}s`;
+        });
+
+        // Parallax on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.8;
+            }
+        });
+    </script>
+</body>
+</html>
