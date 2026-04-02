@@ -510,6 +510,21 @@
             opacity: 0.3;
         }
 
+        .original-link {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--wine);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--wine-light);
+            padding-bottom: 1px;
+            transition: all 0.3s ease;
+        }
+        .original-link:hover {
+            color: var(--wine-dark);
+            border-bottom-color: var(--wine);
+        }
+
         @media (max-width: 480px) {
             .step { flex-direction: column; gap: 0.5rem; }
             .step-number { width: auto; text-align: right; font-size: 2.5rem; }
@@ -688,6 +703,7 @@
     <footer class="footer">
         <p class="footer-text">!בתיאבון</p>
         <p class="footer-sub">ישראל אהרוני · mako</p>
+        <a href="https://www.mako.co.il/food-recipes/recipes_column-meat/Recipe-a5f78a710abad11004.htm" class="original-link" target="_blank" rel="noopener">למתכון המקורי ←</a>
         <span class="footer-leaf">🍲</span>
     </footer>
 
