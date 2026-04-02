@@ -240,6 +240,11 @@
             z-index: 2;
             transition: transform 0.4s ease;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            display: none;
+        }
+
+        .card-bg:not([style*="background-image"]) ~ .card-emoji {
+            display: block;
         }
 
         .recipe-card:hover .card-emoji {
@@ -251,10 +256,23 @@
             inset: 0;
             opacity: 0.9;
             transition: transform 0.6s ease;
+            background-size: cover;
+            background-position: center;
         }
 
         .recipe-card:hover .card-bg {
             transform: scale(1.05);
+        }
+
+        .card-bg[style*="background-image"] {
+            opacity: 1;
+        }
+
+        .card-bg[style*="background-image"]::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.15) 0%, transparent 50%);
         }
 
         /* Color themes for cards */
@@ -458,14 +476,14 @@
 
     <!-- RECIPES -->
     <main class="recipes-wrap">
-        <p class="recipe-count"><strong id="count">4</strong> מתכונים באוסף</p>
+        <p class="recipe-count"><strong id="count">9</strong> מתכונים באוסף</p>
 
         <div class="recipes-grid" id="recipesGrid">
 
             <!-- Salat HaHasa -->
             <a href="recipes/salat-hasa.html" class="recipe-card card-theme-green" data-category="salads">
                 <div class="card-visual">
-                    <div class="card-bg"></div>
+                    <div class="card-bg" style="background-image: url('https://img.haarets.co.il/bs/0000017f-f8bd-d318-afff-fbfff1480000/9a/12/9a2084bc0ecc485d8e311686d192/451906437.jpg?precrop=760,443,x8,y111&width=1200&height=630')"></div>
                     <span class="card-tag">סלטים</span>
                     <span class="card-emoji">🥬</span>
                 </div>
@@ -487,7 +505,7 @@
             <!-- Orez Metugan -->
             <a href="recipes/orez-metugan.html" class="recipe-card card-theme-honey" data-category="sides">
                 <div class="card-visual">
-                    <div class="card-bg"></div>
+                    <div class="card-bg" style="background-image: url('https://static.wixstatic.com/media/ea4d13_a5f37acfd362478a91a414193c424f5a~mv2.jpg')"></div>
                     <span class="card-tag">תוספות</span>
                     <span class="card-emoji">🍚</span>
                 </div>
@@ -509,7 +527,7 @@
             <!-- Tiramisu -->
             <a href="recipes/tiramisu.html" class="recipe-card card-theme-spice" data-category="desserts">
                 <div class="card-visual">
-                    <div class="card-bg"></div>
+                    <div class="card-bg" style="background-image: url('https://www.metukimsheli.com/wp-content/uploads/2023/01/טירמיסו.jpg')"></div>
                     <span class="card-tag">קינוחים</span>
                     <span class="card-emoji">☕</span>
                 </div>
@@ -531,7 +549,7 @@
             <!-- Kdirat Basar -->
             <a href="recipes/kdirat-basar.html" class="recipe-card card-theme-terra" data-category="mains">
                 <div class="card-visual">
-                    <div class="card-bg"></div>
+                    <div class="card-bg" style="background-image: url('https://img.mako.co.il/2025/02/16/shutterstock_1831859491_re_autoOrient_w.jpg')"></div>
                     <span class="card-tag">עיקריות</span>
                     <span class="card-emoji">🍲</span>
                 </div>
@@ -543,6 +561,116 @@
                         <span>🕐 3.5 שעות</span>
                         <span>👥 6-8 סועדים</span>
                         <span>🌡 תנור</span>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </div>
+            </a>
+
+            <!-- Noodels Mukpatz -->
+            <a href="recipes/noodels-mukpatz.html" class="recipe-card card-theme-ocean" data-category="mains">
+                <div class="card-visual">
+                    <div class="card-bg" style="background-image: url('https://st1.foodsd.co.il/Images/Recipes/xxxl/Recipe-15657-r418gmk6hbb7mag0.webp')"></div>
+                    <span class="card-tag">עיקריות</span>
+                    <span class="card-emoji">🍜</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-source">רמית עדיקה</p>
+                    <h2 class="card-title">נודלס מוקפץ עם ירקות</h2>
+                    <p class="card-desc">נודלס מוקפץ צמחוני מאטריות ביצים וירקות — ארוחת צהריים טעימה וקלה להכנה.</p>
+                    <div class="card-meta">
+                        <span>🕐 15 דק׳</span>
+                        <span>🌱 צמחוני</span>
+                        <span>🔥 ווק</span>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </div>
+            </a>
+
+            <!-- Tavshil Tofu -->
+            <a href="recipes/tavshil-tofu.html" class="recipe-card card-theme-plum" data-category="mains">
+                <div class="card-visual">
+                    <div class="card-bg" style="background-image: url('https://www.markivsodi.co.il/wp-content/uploads/2021/08/תבשיל-טופו-ופטריות-טבעוני-ללא-גלוטן_ראשי_1000.jpg')"></div>
+                    <span class="card-tag">עיקריות</span>
+                    <span class="card-emoji">🍲</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-source">אולגה טוכשר</p>
+                    <h2 class="card-title">תבשיל טופו ופטריות</h2>
+                    <p class="card-desc">טבעוני, ללא גלוטן, עשיר בחלבון מהצומח. ברוטב חמאת בוטנים וסויה.</p>
+                    <div class="card-meta">
+                        <span>🕐 20 דק׳</span>
+                        <span>🌱 טבעוני</span>
+                        <span>💪 חלבון</span>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </div>
+            </a>
+
+            <!-- Marak Adashim -->
+            <a href="recipes/marak-adashim.html" class="recipe-card card-theme-honey" data-category="soups">
+                <div class="card-visual">
+                    <div class="card-bg" style="background-image: url('https://www.thekitchencoach.co.il/wp-content/uploads/2019/12/מרק-עדשים-ביתי-ומנחם.-צילום-עז-תלם.jpg')"></div>
+                    <span class="card-tag">מרקים</span>
+                    <span class="card-emoji">🍲</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-source">עז תלם</p>
+                    <h2 class="card-title">מרק עדשים חורפי</h2>
+                    <p class="card-desc">מרק עדשים עדין ומנחם עם ירוקות וכתומות, ירקות שורש וכורכום. תמיד מצליח.</p>
+                    <div class="card-meta">
+                        <span>🕐 45 דק׳</span>
+                        <span>🌱 טבעוני</span>
+                        <span>🍲 מנחם</span>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </div>
+            </a>
+
+            <!-- Marak Grisim -->
+            <a href="recipes/marak-grisim.html" class="recipe-card card-theme-spice" data-category="soups">
+                <div class="card-visual">
+                    <div class="card-bg" style="background-image: url('https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2023/11/29160240/KRT_4916-1200-%D7%A8%D7%90%D7%A9%D7%99%D7%AA.jpg')"></div>
+                    <span class="card-tag">מרקים</span>
+                    <span class="card-emoji">🍄</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-source">רחלי קרוט</p>
+                    <h2 class="card-title">מרק גריסים ופטריות</h2>
+                    <p class="card-desc">סמיך ועשיר, עם גריסי פנינה ופטריות שמפיניון. חלום של מרק חורפי.</p>
+                    <div class="card-meta">
+                        <span>🕐 שעה+</span>
+                        <span>🍄 פטריות</span>
+                        <span>🍲 מנחם</span>
+                    </div>
+                </div>
+                <div class="card-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                </div>
+            </a>
+
+            <!-- Marak Patariyot -->
+            <a href="recipes/marak-patariyot.html" class="recipe-card card-theme-terra" data-category="soups">
+                <div class="card-visual">
+                    <div class="card-bg" style="background-image: url('https://www.10dakot.co.il/wp-content/uploads/2019/01/‏‏DSC_0010-עותק.jpg')"></div>
+                    <span class="card-tag">מרקים</span>
+                    <span class="card-emoji">🍄</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-source">אפרת סיאצ׳י</p>
+                    <h2 class="card-title">מרק פטריות וגריסים</h2>
+                    <p class="card-desc">מרק פטריות סמיך וטעים עם גריסי פנינה, שמפיניון ופורטובלו.</p>
+                    <div class="card-meta">
+                        <span>🕐 שעה</span>
+                        <span>🍄 פטריות</span>
+                        <span>🌱 פרווה</span>
                     </div>
                 </div>
                 <div class="card-arrow">
