@@ -504,6 +504,151 @@
         .tip-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
         .tip-card p { font-size: 0.95rem; line-height: 1.7; color: var(--broth-pale); }
 
+        /* ===== ORIGINAL EMAIL ===== */
+        .email-section {
+            background: var(--linen);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--broth-light), transparent);
+        }
+
+        .email-container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .email-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .email-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            color: var(--broth);
+            display: block;
+            margin-bottom: 0.6rem;
+        }
+
+        .email-title {
+            font-family: 'Secular One', sans-serif;
+            font-size: 1.6rem;
+            color: var(--bark);
+        }
+
+        .email-card {
+            background: var(--warm-white);
+            border-radius: 16px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow:
+                0 1px 0 rgba(0,0,0,0.04),
+                0 4px 16px rgba(61, 46, 31, 0.06),
+                0 12px 40px rgba(61, 46, 31, 0.04);
+            position: relative;
+        }
+
+        /* Toolbar strip */
+        .email-toolbar {
+            background: linear-gradient(180deg, #F2F0ED 0%, #E8E4DF 100%);
+            padding: 0.6rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .email-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #D4D0CC;
+        }
+
+        .email-dot:nth-child(1) { background: #EC6A5E; }
+        .email-dot:nth-child(2) { background: #F4BF4F; }
+        .email-dot:nth-child(3) { background: #61C554; }
+
+        /* Email meta fields */
+        .email-meta {
+            padding: 1.2rem 2rem 0;
+            font-size: 0.82rem;
+            color: var(--bark-light);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 1.2rem;
+        }
+
+        .email-field {
+            display: flex;
+            gap: 0.6rem;
+            padding: 0.25rem 0;
+            line-height: 1.5;
+        }
+
+        .email-field-label {
+            font-weight: 600;
+            color: var(--bark);
+            min-width: 50px;
+            flex-shrink: 0;
+        }
+
+        .email-field-value {
+            color: var(--bark-light);
+        }
+
+        .email-subject {
+            font-weight: 600;
+            color: var(--bark);
+            font-size: 0.95rem;
+        }
+
+        /* Email body */
+        .email-body {
+            padding: 2rem;
+            font-family: 'Frank Ruhl Libre', serif;
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--bark);
+        }
+
+        .email-body p {
+            margin-bottom: 1rem;
+        }
+
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .email-greeting {
+            color: var(--broth-dark);
+            font-weight: 500;
+        }
+
+        .email-sign {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(61, 46, 31, 0.12);
+            font-style: italic;
+            color: var(--bark-light);
+        }
+
+        .email-caption {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--bark-light);
+            font-style: italic;
+            margin-top: 1.5rem;
+            opacity: 0.7;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
@@ -701,6 +846,47 @@
                     <p>המרק טעים עוד יותר למחרת</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ORIGINAL EMAIL -->
+    <section class="email-section">
+        <div class="email-container">
+            <div class="email-header">
+                <span class="email-label">📧 המייל המקורי</span>
+                <h2 class="email-title">כמו שנשלח</h2>
+            </div>
+
+            <div class="email-card">
+                <div class="email-toolbar">
+                    <span class="email-dot"></span>
+                    <span class="email-dot"></span>
+                    <span class="email-dot"></span>
+                </div>
+
+                <div class="email-meta">
+                    <div class="email-field">
+                        <span class="email-field-label">נושא:</span>
+                        <span class="email-subject">מרק עוף 🍗</span>
+                    </div>
+                </div>
+
+                <div class="email-body">
+                    <p><span class="email-greeting">אהלן.</span></p>
+
+                    <p>אין במרק עוף שום דבר מיוחד, מכניסים לסיר 4 או 5 כרעיים או עוף מחולק ל-8 חלקים (תלוי בגודל הסיר).</p>
+
+                    <p>מכסים במים ומביאים לרתיחה. כשהעסק מתחיל לרתוח נוצר קצף חום מעל ואפשר להוציא חלק גדול ממנו בעזרת כף.</p>
+
+                    <p>בזמן שהסיר מתחמם על הגז מקלפים שורש, סלרי, קישוא, אפשר איזה חצי קולרבי, 4 גזרים, אפשר להכניס גם עגבניה, מה שמתחשק לך תלוי בגודל הסיר. שוטפים קצת פטרוזיליה, שמיר וכמה מהעלים של הסלרי ומכניסים גם כן. מלח + כף אבקת מרק עוף.</p>
+
+                    <p>מביאים שוב לרתיחה ומקטינים את האש. אני מבשלת בסיר לחץ אבל בסיר רגיל אני חושבת שזה לוקח בסביבות שעה וחצי!</p>
+
+                    <p class="email-sign">בתאבון ❤️</p>
+                </div>
+            </div>
+
+            <p class="email-caption">שמרנו את המייל הזה כי יש מתכונים שהערך שלהם הוא בדיוק בפשטות</p>
         </div>
     </section>
 
